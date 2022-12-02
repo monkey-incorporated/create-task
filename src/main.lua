@@ -2,6 +2,8 @@ local board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
 local player = "X"
 local winner = nil
 
+--make the player go againt the computer
+
 local function drawBoard()
     print(" " .. board[1] .. " | " .. board[2] .. " | " .. board[3] .. " ")
     print("-----------")
@@ -37,27 +39,31 @@ local function checkTie()
             tie = false
         end
     end
-    if tie then
+    if tie == true then
         winner = "tie"
     end
 end
 
-local function playTurn()
-    local valid = false
-    while not valid do
-        print("Player " .. player .. ", enter a number from 1 to 9:")
-        local input = io.read()
-        local num = tonumber(input)
-        if num ~= nil and num >= 1 and num <= 9 then
-            if board[num] == " " then
-                board[num] = player
-                valid = true
-            end
-        end
+local function playerMove()
+    local move = tonumber(io.read())
+    if board[move] == " " then
+        board[move] = player
+    else
+        print("That space is taken!")
+        playerMove()
     end
 end
 
-local function switchPlayer()
+local function computerMove()
+    local move = math.random(1, 9)
+    if board[move] == " " then
+        board[move] = player
+    else
+        computerMove()
+    end
+end
+
+local function changePlayer()
     if player == "X" then
         player = "O"
     else
@@ -65,21 +71,25 @@ local function switchPlayer()
     end
 end
 
-local function main()
+local function play()
     while winner == nil do
         drawBoard()
-        playTurn()
+        playerMove()
         checkWinner()
         checkTie()
-        switchPlayer()
+        changePlayer()
+        computerMove()
+        checkWinner()
+        checkTie()
+        changePlayer()
     end
     drawBoard()
     if winner == "tie" then
         print("It's a tie!")
     else
-        print("Player " .. winner .. " wins!")
+        print("The winner is " .. winner .. "!")
     end
 end
 
-main()
+play()
 
