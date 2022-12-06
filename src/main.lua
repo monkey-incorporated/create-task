@@ -1,7 +1,7 @@
 -- local board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
 --[[
 - updated list to 2d list to make it easier to check for a winner and to make it easier to draw the board 
-
+--]]
 local board2d = {
     {" ", " ", " "}, -- row is board[1]
     {" ", " ", " "}, -- row is board[2]
