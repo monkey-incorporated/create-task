@@ -24,7 +24,10 @@ local function drawBoard()
         for j = 1, 3 do
             io.write( " " .. board2d[i][j] .. " | ")
         end
-        print("\n-----------")
+        if i ~= 3 then
+            print("\n-----------")
+        end
+        
     end
 
 --    print(" " .. board[1] .. " | " .. board[2] .. " | " .. board[3] .. " " .. "\n-----------")
@@ -115,6 +118,11 @@ end
 
 
 local function playerMove()
+
+    
+
+
+   --[[
     print("Player " .. player .. ", enter a number from 1 to 9:")
     local move = tonumber(io.read())
     if board[move] == " " then
@@ -123,6 +131,8 @@ local function playerMove()
         print("That space is taken!")
         playerMove()
     end
+    --]]
+
 end
 
 local function computerMove()
