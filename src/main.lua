@@ -1,4 +1,14 @@
 local board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
+
+local board2d = {
+    {" ", " ", " "}, -- row is board[1]
+    {" ", " ", " "}, -- row is board[2]
+    {" ", " ", " "} -- row is board[3]
+}
+
+-- board2d[1][1] board[1][2] board[1][3]
+
+
 local player = "X"
 local winner = nil
 
@@ -7,14 +17,26 @@ local play = true
 --make the player go againt the computer
 
 local function drawBoard()
-    print(" " .. board[1] .. " | " .. board[2] .. " | " .. board[3] .. " ")
-    print("-----------")
-    print(" " .. board[4] .. " | " .. board[5] .. " | " .. board[6] .. " ")
-    print("-----------")
-    print(" " .. board[7] .. " | " .. board[8] .. " | " .. board[9] .. " ")
+    for i = 1, 3 do
+        for j = 1, 3 do
+            io.write( " " .. board2d[i][j] .. " | ")
+        end
+        print("\n-----------")
+    end
+
+--    print(" " .. board[1] .. " | " .. board[2] .. " | " .. board[3] .. " " .. "\n-----------")
+ --   print("-----------")
+--    print(" " .. board[4] .. " | " .. board[5] .. " | " .. board[6] .. " ")
+ --   print("-----------")
+ --   print(" " .. board[7] .. " | " .. board[8] .. " | " .. board[9] .. " ")
 end
 
 local function checkWinner()
+    -- To check a row: if board2d[i][i] ~= " " and board2d[i][i] == board2d[1][i+1] and board2d[i][i+1] == board2d[i][i+2] then
+        --winner == board[i][i]
+    --To check a column if board2d[1][1] == board2d[2][1] AND board2d[3][1] == board2d[1][] ~= " " then
+
+    -- [1][1] [2][2] [3][3] OR [1][3] [2][2] [3][1]
     if board[1] == board[2] and board[2] == board[3] and board[1] ~= " " then
         winner = board[1]
     elseif board[4] == board[5] and board[5] == board[6] and board[4] ~= " " then
