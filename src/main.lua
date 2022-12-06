@@ -10,6 +10,7 @@ local board2d = {
 
 -- board2d[1][1] board[1][2] board[1][3]
 
+-- test
 
 local player = "X"
 local winner = nil
