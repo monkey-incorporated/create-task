@@ -6,7 +6,7 @@ local board2d = {
     {" ", " ", " "}, -- row is board[1]
     {" ", " ", " "}, -- row is board[2]
     {" ", " ", " "} -- row is board[3]
-}
+} 
 
 -- board2d[1][1] board[1][2] board[1][3]
 
