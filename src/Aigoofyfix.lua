@@ -9,7 +9,7 @@ local function drawBoard()
     print(" " .. board[7] .. " | " .. board[8] .. " | " .. board[9] .. " ")
 end
 
-local function isValidMove(move)
+local function isValidMove(move) 
     return board[move] == " "
 end
 
