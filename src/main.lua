@@ -1,5 +1,6 @@
 local board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
 
+
 local board2d = {
     {" ", " ", " "}, -- row is board[1]
     {" ", " ", " "}, -- row is board[2]
