@@ -119,10 +119,7 @@ end
 
 local function playerMove()
 
-    
-
-
-   --[[
+    --[[
     print("Player " .. player .. ", enter a number from 1 to 9:")
     local move = tonumber(io.read())
     if board[move] == " " then
@@ -132,6 +129,18 @@ local function playerMove()
         playerMove()
     end
     --]]
+
+    print("Player " .. player .. ", enter a number from 1 to 9:")
+    local move = tonumber(io.read())
+    if board2d[move] == " " then
+        board2d[move] = player
+    else
+        print("That space is taken!")
+        playerMove()
+    end
+
+
+   
 
 end
 
