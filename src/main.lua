@@ -58,7 +58,7 @@ local function checkWinner()
         winner = board[1]
     elseif board[3] == board[5] and board[5] == board[7] and board[3] ~= " " then
         winner = board[3]
-    end
+    end 
     --]]
 
      -- check rows
