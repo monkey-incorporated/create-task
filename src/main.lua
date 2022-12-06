@@ -2,6 +2,8 @@ local board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
 local player = "X"
 local winner = nil
 
+local play = true
+
 --make the player go againt the computer
 
 local function drawBoard()
@@ -45,6 +47,7 @@ local function checkTie()
 end
 
 local function playerMove()
+    print("Player " .. player .. ", enter a number from 1 to 9:")
     local move = tonumber(io.read())
     if board[move] == " " then
         board[move] = player
@@ -86,11 +89,32 @@ local function play()
     drawBoard()
     if winner == "tie" then
         print("It's a tie!")
+    elseif
+        winner == "X" then
+        print("You win!")
     else
-        print("The winner is " .. winner .. "!")
+        print("Try again! computer wins!")
+    
+
+        
     end
 end
 
-play()
+while play do 
+    play()
+    print("Do you want to play again? (y/n)")
+    local answer = io.read()
+    if answer == "y" then
+        board = {" ", " ", " ", " ", " ", " ", " ", " ", " "}
+        player = "X"
+        winner = nil
+    else
+        print("Thanks for playing!")
+        play = false
+    end
+
+
+end
+
 
 
