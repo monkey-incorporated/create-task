@@ -40,6 +40,8 @@ local function checkWinner()
     --To check a column if board2d[1][1] == board2d[2][1] AND board2d[3][1] == board2d[1][] ~= " " then
 
     -- [1][1] [2][2] [3][3] OR [1][3] [2][2] [3][1]
+
+    --[[
     if board[1] == board[2] and board[2] == board[3] and board[1] ~= " " then
         winner = board[1]
     elseif board[4] == board[5] and board[5] == board[6] and board[4] ~= " " then
@@ -56,10 +58,32 @@ local function checkWinner()
         winner = board[1]
     elseif board[3] == board[5] and board[5] == board[7] and board[3] ~= " " then
         winner = board[3]
+    end 
+    --]]
+
+     -- check rows
+     for i = 1, 3 do
+        if board2d[i][1] == board2d[i][2] and board2d[i][2] == board2d[i][3] and board2d[i][1] ~= " " then
+            winner = board2d[i][1]
+        end
+    end
+    
+    -- check columns
+    for i = 1, 3 do
+        if board2d[1][i] == board2d[2][i] and board2d[2][i] == board2d[3][i] and board2d[1][i] ~= " " then
+            winner = board2d[1][i]
+        end
+    end
+    
+    -- check diagonals
+    if board2d[1][1] == board2d[2][2] and board2d[2][2] == board2d[3][3] and board2d[1][1] ~= " " then
+        winner = board2d[1][1]
     end
 end
 
 local function checkTie()
+
+       --[[
     local tie = true
     for i = 1, 9 do
         if board[i] == " " then
@@ -69,7 +93,26 @@ local function checkTie()
     if tie == true then
         winner = "tie"
     end
+    ]]--
+    local tie = true
+    for i = 1, 3 do
+        for j = 1, 3 do
+            if board2d[i][j] == " " then
+                tie = false
+            end
+        end
+    end
+    if tie == true then
+        winner = "tie"
+    end
 end
+
+
+
+ 
+
+
+
 
 local function playerMove()
     print("Player " .. player .. ", enter a number from 1 to 9:")
