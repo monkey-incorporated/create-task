@@ -128,16 +128,9 @@ local function playerMove()
         print("That space is taken!")
         playerMove()
     end
-    --]]
+    --]
 
-    print("Player " .. player .. ", enter a number from 1 to 9:")
-    local move = tonumber(io.read())
-    if board2d[move] == " " then
-        board2d[move] = player
-    else
-        print("That space is taken!")
-        playerMove()
-    end
+
 
 
    
