@@ -85,14 +85,8 @@ local function playerMove()
     else
         print("That space is taken!")
         playerMove()
-<<<<<<< HEAD
     end 
     --]]
-=======
-    end
-    --]
-
->>>>>>> 59cfa9c365d9cba4233c8001122bc83de8a7c359
 
 
 
